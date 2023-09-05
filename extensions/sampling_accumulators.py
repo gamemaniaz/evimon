@@ -27,6 +27,7 @@ class DatasetDriftMetricSampleAccumulator(SampleAccumulator):
         accum_value: Union[DODatasetDriftMetric, dict],
         new_value: Union[DODatasetDriftMetric, dict],
     ) -> DODatasetDriftMetric:
+        # TODO: think of another way to serialise when required
         if accum_value is not None and type(accum_value) is dict:
             accum_value: DODatasetDriftMetric = DODatasetDriftMetric.from_dict(
                 accum_value
