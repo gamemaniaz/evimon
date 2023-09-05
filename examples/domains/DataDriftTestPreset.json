@@ -1,0 +1,311 @@
+{
+    "tests": [
+        {
+            "name": "Share of Drifted Columns",
+            "description": "The drift is detected for 0% features (0 out of 15). The test threshold is lt=0.3",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "condition": {
+                    "lt": 0.3
+                },
+                "features": {
+                    "age": {
+                        "stattest": "Wasserstein distance (normed)",
+                        "score": 0.018,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "capital-gain": {
+                        "stattest": "Wasserstein distance (normed)",
+                        "score": 0.012,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "capital-loss": {
+                        "stattest": "Wasserstein distance (normed)",
+                        "score": 0.008,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "education-num": {
+                        "stattest": "Wasserstein distance (normed)",
+                        "score": 0.022,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "fnlwgt": {
+                        "stattest": "Wasserstein distance (normed)",
+                        "score": 0.021,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "hours-per-week": {
+                        "stattest": "Wasserstein distance (normed)",
+                        "score": 0.009,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "class": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.001,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "education": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.017,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "marital-status": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.012,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "native-country": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.034,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "occupation": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.017,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "race": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.004,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "relationship": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.012,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "sex": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.008,
+                        "threshold": 0.1,
+                        "detected": false
+                    },
+                    "workclass": {
+                        "stattest": "Jensen-Shannon distance",
+                        "score": 0.017,
+                        "threshold": 0.1,
+                        "detected": false
+                    }
+                }
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **class** is 0.001. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.001,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "class"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **education** is 0.017. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.017,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "education"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **marital-status** is 0.012. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.012,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "marital-status"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **native-country** is 0.034. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.034,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "native-country"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **occupation** is 0.017. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.017,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "occupation"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **race** is 0.004. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.004,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "race"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **relationship** is 0.012. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.012,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "relationship"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **sex** is 0.008. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.008,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "sex"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **workclass** is 0.017. The drift detection method is Jensen-Shannon distance. The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Jensen-Shannon distance",
+                "score": 0.017,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "workclass"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **age** is 0.018. The drift detection method is Wasserstein distance (normed). The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Wasserstein distance (normed)",
+                "score": 0.018,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "age"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **capital-gain** is 0.012. The drift detection method is Wasserstein distance (normed). The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Wasserstein distance (normed)",
+                "score": 0.012,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "capital-gain"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **capital-loss** is 0.008. The drift detection method is Wasserstein distance (normed). The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Wasserstein distance (normed)",
+                "score": 0.008,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "capital-loss"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **education-num** is 0.022. The drift detection method is Wasserstein distance (normed). The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Wasserstein distance (normed)",
+                "score": 0.022,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "education-num"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **fnlwgt** is 0.021. The drift detection method is Wasserstein distance (normed). The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Wasserstein distance (normed)",
+                "score": 0.021,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "fnlwgt"
+            }
+        },
+        {
+            "name": "Drift per Column",
+            "description": "The drift score for the feature **hours-per-week** is 0.009. The drift detection method is Wasserstein distance (normed). The drift detection threshold is 0.1.",
+            "status": "SUCCESS",
+            "group": "data_drift",
+            "parameters": {
+                "stattest": "Wasserstein distance (normed)",
+                "score": 0.009,
+                "threshold": 0.1,
+                "detected": false,
+                "column_name": "hours-per-week"
+            }
+        }
+    ],
+    "summary": {
+        "all_passed": true,
+        "total_tests": 16,
+        "success_tests": 16,
+        "failed_tests": 0,
+        "by_status": {
+            "SUCCESS": 16
+        }
+    }
+}
