@@ -1,0 +1,14 @@
+{
+    "metrics": [
+        {
+            "metric": "DatasetDriftMetric",
+            "result": {
+                "drift_share": 0.5,
+                "number_of_columns": 15,
+                "number_of_drifted_columns": 0,
+                "share_of_drifted_columns": 0.0,
+                "dataset_drift": false
+            }
+        }
+    ]
+}

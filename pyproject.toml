@@ -1,0 +1,31 @@
+[project]
+name = "evidently-extensions"
+version = "0.1.0"
+description = "Extensions for Open-Source project Evidently"
+authors = [
+    {name = "Louis Lim Ying Wei", email = "gamemaniaz@hotmail.com"},
+]
+dependencies = [
+    "evidently>=0.4.4",
+    "tqdm>=4.66.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.4.1",
+]
+lint = [
+    "black>=23.7.0",
+    "isort>=5.12.0",
+    "autoflake>=2.2.1",
+]
+
+[tool.isort]
+profile = "black"
