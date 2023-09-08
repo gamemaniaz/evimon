@@ -43,7 +43,9 @@ class SmallerPopulationSizeSamplerStrategy(SamplerStategy):
 
 
 class FixedSizeSamplerStrategy(SamplerStategy):
-    def __init__(self, sample_size: int, random_seed: int = None, randbits_size: int = 32) -> None:
+    def __init__(
+        self, sample_size: int, random_seed: int = None, randbits_size: int = 32
+    ) -> None:
         self.sample_size = sample_size
         self.random_seed = random_seed
         self.randbits_size = randbits_size
@@ -62,16 +64,20 @@ class FixedSizeSamplerStrategy(SamplerStategy):
             random_state=random_state,
         ).reset_index(drop=True)
         return reference_data_sample, current_data_sample
-    
+
 
 class SmallerPopulationSizeStratifiedSamplerStrategy(SamplerStategy):
-    def generate_samples(self, reference_data: pd.DataFrame, current_data: pd.DataFrame) -> RefCurDfType:
+    def generate_samples(
+        self, reference_data: pd.DataFrame, current_data: pd.DataFrame
+    ) -> RefCurDfType:
         # TODO: add impl
         raise NotImplementedError()
-    
+
 
 class FixedSizeStratifiedSamplerStrategy(SamplerStategy):
-    def generate_samples(self, reference_data: pd.DataFrame, current_data: pd.DataFrame) -> RefCurDfType:
+    def generate_samples(
+        self, reference_data: pd.DataFrame, current_data: pd.DataFrame
+    ) -> RefCurDfType:
         # TODO: add impl
         raise NotImplementedError()
 

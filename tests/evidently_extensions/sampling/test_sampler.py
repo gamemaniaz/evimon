@@ -3,12 +3,14 @@ from evidently.metric_preset import DataDriftPreset
 from evidently.report import Report as EvidentlyReport
 from pandas.testing import assert_frame_equal
 
-from evidently_extensions.sampling.accumulators import DatasetDriftMetricSampleAccumulator
+from evidently_extensions.sampling.accumulators import (
+    DatasetDriftMetricSampleAccumulator,
+)
 from evidently_extensions.sampling.sampler import (
+    FixedSizeSamplerStrategy,
     RefCurDfType,
     SamplerStategy,
     SmallerPopulationSizeSamplerStrategy,
-    FixedSizeSamplerStrategy,
     generate_sampled_report,
 )
 
@@ -84,7 +86,9 @@ def test_fixed_size_sampler_strategy():
         ]
     )
 
-    sampler = FixedSizeSamplerStrategy(sample_size=1, random_seed=5678, randbits_size=32)
+    sampler = FixedSizeSamplerStrategy(
+        sample_size=1, random_seed=5678, randbits_size=32
+    )
     reference_data_sample, current_data_sample = sampler.generate_samples(
         reference_data, current_data
     )
