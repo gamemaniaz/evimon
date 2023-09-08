@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Generic, TypedDict, TypeVar
 
-from evidently_extensions.sampling.transformers import get_metric_result
+from evidently_extensions.sampling.transformers import get_metric_result, get_test_result
 
 T = TypeVar("T")
 
@@ -24,13 +24,13 @@ class DatasetDriftMetricSampleAccumulator(
     SampleAccumulator[DatasetDriftMetricAccumValue]
 ):
     def __init__(self) -> None:
-        self.accum_value = {
-            "drift_share": 0.0,
-            "number_of_columns": 0,
-            "number_of_drifted_columns": 0,
-            "share_of_drifted_columns": 0.0,
-            "dataset_drift": False,
-        }
+        self.accum_value = DatasetDriftMetricAccumValue(
+            drift_share=0.0,
+            number_of_columns=0,
+            number_of_drifted_columns=0,
+            share_of_drifted_columns=0.0,
+            dataset_drift=False,
+        )
 
     def accumulate(self, new_input: Any) -> DatasetDriftMetricAccumValue:
         new_input = get_metric_result(new_input, "DatasetDriftMetric")
@@ -49,3 +49,14 @@ class DatasetDriftMetricSampleAccumulator(
             >= self.accum_value["drift_share"]
         )
         return self.accum_value
+
+
+# class NumberOfDriftedColumnsSampleAccumulator(
+#     SampleAccumulator[dict]
+# ):
+#     def __init__(self) -> None:
+#         self.accum_value = dict()
+
+#     def accumulate(self, new_input: Any) -> dict:
+#         return super().accumulate(new_input)
+    

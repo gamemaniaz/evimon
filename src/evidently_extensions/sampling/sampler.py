@@ -42,6 +42,40 @@ class SmallerPopulationSizeSamplerStrategy(SamplerStategy):
         return reference_data_sample, current_data_sample
 
 
+class FixedSizeSamplerStrategy(SamplerStategy):
+    def __init__(self, sample_size: int, random_seed: int = None, randbits_size: int = 32) -> None:
+        self.sample_size = sample_size
+        self.random_seed = random_seed
+        self.randbits_size = randbits_size
+        random.seed(self.random_seed)
+
+    def generate_samples(
+        self, reference_data: pd.DataFrame, current_data: pd.DataFrame
+    ) -> RefCurDfType:
+        random_state = random.getrandbits(self.randbits_size)
+        reference_data_sample = reference_data.sample(
+            n=self.sample_size,
+            random_state=random_state,
+        ).reset_index(drop=True)
+        current_data_sample = current_data.sample(
+            n=self.sample_size,
+            random_state=random_state,
+        ).reset_index(drop=True)
+        return reference_data_sample, current_data_sample
+    
+
+class SmallerPopulationSizeStratifiedSamplerStrategy(SamplerStategy):
+    def generate_samples(self, reference_data: pd.DataFrame, current_data: pd.DataFrame) -> RefCurDfType:
+        # TODO: add impl
+        raise NotImplementedError()
+    
+
+class FixedSizeStratifiedSamplerStrategy(SamplerStategy):
+    def generate_samples(self, reference_data: pd.DataFrame, current_data: pd.DataFrame) -> RefCurDfType:
+        # TODO: add impl
+        raise NotImplementedError()
+
+
 @dataclass
 class SampledReportResults:
     population_report: ReportBase

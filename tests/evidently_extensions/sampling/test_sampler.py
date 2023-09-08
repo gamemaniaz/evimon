@@ -3,14 +3,12 @@ from evidently.metric_preset import DataDriftPreset
 from evidently.report import Report as EvidentlyReport
 from pandas.testing import assert_frame_equal
 
-from evidently_extensions.sampling.accumulators import (
-    DatasetDriftMetricAccumValue,
-    DatasetDriftMetricSampleAccumulator,
-)
+from evidently_extensions.sampling.accumulators import DatasetDriftMetricSampleAccumulator
 from evidently_extensions.sampling.sampler import (
     RefCurDfType,
     SamplerStategy,
     SmallerPopulationSizeSamplerStrategy,
+    FixedSizeSamplerStrategy,
     generate_sampled_report,
 )
 
@@ -66,6 +64,33 @@ def test_smaller_population_size_sampler_strategy():
 
     expected_ref_sample = pd.DataFrame([{"col_a": 1, "col_b": 2}])
     expected_curr_sample = pd.DataFrame([{"col_a": -1, "col_b": -2}])
+    assert len(reference_data_sample) == 1
+    assert len(current_data_sample) == 1
+    assert_frame_equal(reference_data_sample, expected_ref_sample)
+    assert_frame_equal(current_data_sample, expected_curr_sample)
+
+
+def test_fixed_size_sampler_strategy():
+    reference_data = pd.DataFrame(
+        [
+            {"col_a": 1, "col_b": 2},
+            {"col_a": 3, "col_b": 4},
+        ]
+    )
+    current_data = pd.DataFrame(
+        [
+            {"col_a": -1, "col_b": -2},
+            {"col_a": -3, "col_b": -4},
+        ]
+    )
+
+    sampler = FixedSizeSamplerStrategy(sample_size=1, random_seed=5678, randbits_size=32)
+    reference_data_sample, current_data_sample = sampler.generate_samples(
+        reference_data, current_data
+    )
+
+    expected_ref_sample = pd.DataFrame([{"col_a": 3, "col_b": 4}])
+    expected_curr_sample = pd.DataFrame([{"col_a": -3, "col_b": -4}])
     assert len(reference_data_sample) == 1
     assert len(current_data_sample) == 1
     assert_frame_equal(reference_data_sample, expected_ref_sample)
